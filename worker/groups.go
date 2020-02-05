@@ -1060,7 +1060,7 @@ func askZeroForEE() bool {
 func SubscribeForUpdates(prefixes [][]byte, cb func(kvs *badgerpb.KVList), group uint32,
 	closer *y.Closer) {
 	defer closer.Done()
-
+	return
 	for {
 		select {
 		case <-closer.HasBeenClosed():

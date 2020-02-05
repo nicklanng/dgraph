@@ -43,9 +43,9 @@ const (
 	graphqlAdminURL = "http://localhost:8180/admin"
 	alphagRPC       = "localhost:9180"
 
-	graphqlAdminTestURL      = "http://localhost:8280/graphql"
-	graphqlAdminTestAdminURL = "http://localhost:8280/admin"
-	alphaAdminTestgRPC       = "localhost:9280"
+	graphqlAdminTestURL      = "http://localhost:8180/graphql"
+	graphqlAdminTestAdminURL = "http://localhost:8180/admin"
+	alphaAdminTestgRPC       = "localhost:9180"
 )
 
 // GraphQLParams is parameters for the constructing a GraphQL query - that's

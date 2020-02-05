@@ -698,6 +698,11 @@ func hasXID(defn *ast.Definition) bool {
 		func(fld *ast.FieldDefinition) bool { return hasIDDirective(fld) })
 }
 
+func hasPassword(defn *ast.Definition) bool {
+	return fieldAny(defn.Fields,
+		func(fld *ast.FieldDefinition) bool { return isPassword(fld) })
+}
+
 // fieldAny returns true if any field in fields satisfies pred
 func fieldAny(fields ast.FieldList, pred func(*ast.FieldDefinition) bool) bool {
 	for _, fld := range fields {
@@ -948,6 +953,10 @@ func addPasswordQuery(schema *ast.Schema, defn *ast.Definition) {
 	hasIDField := hasID(defn)
 	hasXIDField := hasXID(defn)
 	if !hasIDField && !hasXIDField {
+		return
+	}
+
+	if !hasPassword(defn) {
 		return
 	}
 
